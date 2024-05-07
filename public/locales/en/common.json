@@ -1,0 +1,38 @@
+{
+  "websiteTitleAbbr": "K8s Env Converter",
+  "websiteTitle": "Kubernetes Environment Variables Converter",
+  "websiteDescription": "Convert Kubernetes environment variables to .env format. You can drop a YAML file or click anywhere below this paragraph to upload a file.",
+  "websiteBuiltBy": "<span>Made with <HeartTitle>💖</HeartTitle> by <GithubLink>n-d-r-d-g</GithubLink></span>",
+  "websiteBuiltByTitle": "love, sweat & tears",
+  "githubLink": "Github link",
+  "reload": "Reload",
+  "cancel": "Cancel",
+  "ok": "OK",
+  "error": "Error",
+  "clickToBrowse": "Click to browse",
+  "changeLanguage": "Change language",
+  "languageSwitch": {
+    "confirmation": {
+      "title": "Page Reload",
+      "disclaimer": "Changing the language requires a page reload. You will lose all your changes.",
+      "question": "Are you sure you want to reload this page?"
+    }
+  },
+  "copyToClipboard": "Copy to clipboard",
+  "dropZonePlaceholder": "Drop a file or Click to browse",
+  "snippet": {
+    "name": "Name",
+    "type": "Type",
+    "types": {
+      "container": "containers",
+      "ephemeralContainer": "ephemeralContainers",
+      "initContainer": "initContainers"
+    }
+  },
+  "errors": {
+    "fileUpload": {
+      "unexpected": "Something unexpected happened. Please make sure the file you're trying to upload is a YAML file. If this persists, you can create an issue on our Github repository.",
+      "dropRejected": "We're not able to process your file. Please make sure it is a YAML file."
+    }
+  }
+}
