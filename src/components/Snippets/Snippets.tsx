@@ -31,12 +31,12 @@ export function Snippets({ values = [], showEmptyState = false }: Props) {
     );
 
   return (
-    <div className="flex flex-col sm:flex-row sm:justify-center sm:flex-wrap gap-8">
+    <div className="max-w-full grid grid-cols-1 gap-8">
       {values.map((snippet, index) => (
         <div
           key={String(index)}
           onClick={handleSnippetClick}
-          className="cursor-text"
+          className="w-fit max-w-full cursor-text"
         >
           <p className="flex flex-col mb-1 text-sm text-default-600">
             <span>

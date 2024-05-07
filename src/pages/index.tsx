@@ -177,7 +177,7 @@ export default function Home() {
       </p>
       <section
         {...getRootProps()}
-        className={`grow flex flex-row justify-center items-start mt-8 px-2 py-2 sm:py-4 mb-8 cursor-pointer rounded-lg border-4 border-dashed ${
+        className={`grow flex flex-row justify-center items-start mt-8 p-2 sm:p-4 mb-8 cursor-pointer rounded-lg border-4 border-dashed ${
           isDragActive
             ? "bg-success-500 border-success-50"
             : "border-default-500"
