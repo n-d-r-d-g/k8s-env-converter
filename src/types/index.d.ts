@@ -13,11 +13,9 @@ type K8sContainer = {
 };
 
 interface K8sSpec {
-  spec?: {
-    containers?: Array<K8sContainer>;
-    ephemeralContainers?: Array<K8sContainer>;
-    initContainers?: Array<K8sContainer>;
-  };
+  containers?: Array<K8sContainer>;
+  ephemeralContainers?: Array<K8sContainer>;
+  initContainers?: Array<K8sContainer>;
 }
 
 interface EnvVarSnippet {

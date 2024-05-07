@@ -32,7 +32,8 @@
   "errors": {
     "fileUpload": {
       "unexpected": "Something unexpected happened. Please make sure the file you're trying to upload is a YAML file. If this persists, you can create an issue on our Github repository.",
-      "dropRejected": "We're not able to process your file. Please make sure it is a YAML file."
+      "dropRejected": "We're not able to process your file. Please make sure it is a YAML file.",
+      "invalidFormat": "We're not able to process your file. Please make sure it is a valid Kubernetes YAML file."
     }
   }
 }

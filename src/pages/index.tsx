@@ -15,6 +15,7 @@ import { useDropzone } from "react-dropzone";
 import YAML from "yaml";
 import { Snippets } from "@/components/Snippets/Snippets";
 import { DEFAULT_I18N_LOCALE, DEFAULT_I18N_NAMESPACE } from "../../constants";
+import { retrieveNestedSpec } from "@/utils/functions";
 import { EnvVarSnippet, K8sContainer, K8sSpec } from "@/types";
 
 export default function Home() {
@@ -47,10 +48,24 @@ export default function Home() {
       const fileContent = fileReader.result;
 
       if (typeof fileContent === "string") {
-        const parsedContent = YAML.parse(fileContent) as K8sSpec;
+        const parsedContent = YAML.parse(fileContent);
+        let spec: K8sSpec = parsedContent.spec;
+
+        try {
+          spec = retrieveNestedSpec(parsedContent.spec) as K8sSpec;
+
+          if (typeof spec !== "object") throw new Error();
+        } catch {
+          modalContent.current = {
+            header: modalContent.current.header,
+            body: tCommon("errors.fileUpload.invalidFormat"),
+          };
+
+          return openModal();
+        }
 
         const containerEnvVarSnippets: Array<EnvVarSnippet> = (
-          parsedContent.spec?.containers ?? []
+          spec?.containers ?? []
         ).map((container: K8sContainer) => ({
           type: "container",
           name: container.name || "-",
@@ -60,7 +75,7 @@ export default function Home() {
         }));
 
         const ephemeralContainerEnvVarSnippets: Array<EnvVarSnippet> = (
-          parsedContent.spec?.ephemeralContainers ?? []
+          spec?.ephemeralContainers ?? []
         ).map((container: K8sContainer) => ({
           type: "ephemeralContainer",
           name: container.name || "-",
@@ -70,7 +85,7 @@ export default function Home() {
         }));
 
         const initContainerEnvVarSnippets: Array<EnvVarSnippet> = (
-          parsedContent.spec?.initContainers ?? []
+          spec?.initContainers ?? []
         ).map((container: K8sContainer) => ({
           type: "initContainer",
           name: container.name || "-",
